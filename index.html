@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snehal Gullapudi | Portfolio</title>
+    <style>
+        :root {
+            --beige: #e8e2d6;
+            --light-beige: #f2efe8;
+            --dark-beige: #d6cfc1;
+            --grey: #575656;
+            --light-grey: #9c9c9c;
+            --dark-grey: #333333;
+            --black: #121212;
+            --primary-font: 'Montserrat', sans-serif;
+            --secondary-font: 'Playfair Display', serif;
+            --accent: #ff6b6b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: var(--primary-font);
+        }
+
+        body {
+            background-color: var(--beige);
+            color: var(--black);
+            overflow-x: hidden;
+            display: flex;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--secondary-font);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--black);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--grey);
+        }
+
+        /* Left-side Navigation */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: var(--black); /* Changed to black as requested */
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 2rem 1rem;
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white; /* Changed to white for better contrast with black background */
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            color: white; /* Changed to white for better contrast with black background */
+        }
+
+        .nav-links a:hover {
+            background-color: var(--dark-grey);
+            transform: translateX(5px);
+            color: white;
+        }
+
+        .nav-links a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--light-grey);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        #home {
+            background-color: var(--beige);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid var(--light-beige);
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeIn 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--grey);
+            font-weight: 400;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            animation: fadeIn 2s ease;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--light-beige);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background-color: var(--grey);
+            color: white;
+        }
+
+        .social-icon i {
+            font-size: 20px;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounceDown 2s infinite;
+        }
+
+        @keyframes bounceDown {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        .scroll-down i {
+            font-size: 2rem;
+            color: var(--grey);
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: var(--light-beige);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--grey);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--beige);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer; /* Changed cursor to pointer */
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Removed the ::after element with the external link icon */
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .project-desc {
+            color: var(--grey);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        /* Resume Section */
+        #resume {
+            background-color: var(--beige);
+        }
+
+        .resume-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--light-beige);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume-section {
+            margin-bottom: 2rem;
+        }
+
+        .resume-section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--grey);
+        }
+
+        .resume-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .resume-item-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-item-subtitle {
+            font-size: 1.1rem;
+            color: var(--grey);
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-item-date {
+            font-size: 0.9rem;
+            color: var(--light-grey);
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-item-desc {
+            line-height: 1.6;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background-color: var(--grey);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .download-resume {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .download-resume a {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--grey);
+            color: white;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .download-resume a:hover {
+            background-color: var(--dark-grey);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--light-beige);
+            padding: 0%;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-text {
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--light-grey);
+            border-radius: 5px;
+            background-color: var(--beige);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--grey);
+        }
+
+        .form-textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--grey);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background-color: var(--dark-grey);
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            margin-top: 3rem;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: var(--beige);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-info-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--grey);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-info-text {
+            flex-grow: 1;
+        }
+
+        .contact-info-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-info-value {
+            color: var(--grey);
+            font-size: 0.9rem;
+        }
+
+        /* Attractive Contact Button */
+        .contact-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--grey);
+            color: white;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+            border: 2px solid transparent;
+            animation: pulseBorder 2s infinite;
+        }
+
+        @keyframes pulseBorder {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+                border-color: var(--accent);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+                border-color: transparent;
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+                border-color: var(--accent);
+            }
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05);
+            background-color: var(--dark-grey);
+        }
+
+        .contact-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Status message for form submission */
+        .form-status {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .form-status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .footer-social a {
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--beige);
+            transform: translateY(-3px);
+        }
+
+        .footer-text {
+            color: var(--light-grey);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 992px) {
+            .sidebar {
+                width: 200px;
+            }
+            
+            .main-content {
+                margin-left: 200px;
+                width: calc(100% - 200px);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1rem;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            body {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .nav-links a {
+                padding: 0.5rem 1rem;
+            }
+            
+            .sidebar-footer {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .social-links {
+                gap: 1rem;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .contact-btn {
+                padding: 0.6rem 1rem;
+                right: 1rem;
+                bottom: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="sidebar">
+        <a href="#home" class="logo">SG</a>
+        <div class="nav-links">
+            <a href="#home"><i class="fas fa-home"></i> Home</a>
+            <a href="#projects"><i class="fas fa-code-branch"></i> Projects</a>
+            <a href="#resume"><i class="fas fa-file-alt"></i> Resume</a>
+            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+        <div class="sidebar-footer">
+            &copy; 2025 Snehal Gullapudi
+        </div>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <section id="home">
+            <div class="hero-content">
+                <img src="Assets\Snehal.jpg" alt="Snehal Gullapudi" class="hero-img">
+                <h1 class="hero-title">Hey, I'm Snehal</h1>
+                <h2 class="hero-subtitle">AI & Machine Learning Student Developer</h2>
+                <p>I'm a Computer Science student specializing in Artificial Intelligence and Machine Learning at VIT Amaravathi.</p>
+                <div class="social-links">
+                    <a href="https://github.com/Snehalgullapudi" class="social-icon" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/snehal-gullapudi-270b63253/" class="social-icon" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:Snehal.gullapudi@gmail.com" class="social-icon" title="Email">
+                        <i class="far fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <a href="#projects" class="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="Assets/Earthquake detection.jpeg" alt="Earthquake Detection System" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Earthquake Detection System</h3>
+                        <p class="project-desc">An IoT-based system using Arduino Uno and NodeMcu to detect earthquakes, trigger alarms, and visualize seismic data in real-time.</p>
+                    </div>
+                </div>
+        
+                <div class="project-card">
+                    <img src="Assets/Heart Rate Monitoring.jpg" alt="Health Monitoring System" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Health Monitoring System</h3>
+                        <p class="project-desc">A real-time heart rate and temperature monitoring system using Arduino Uno and NodeMcu with alert capabilities for abnormal readings.</p>
+                    </div>
+                </div>
+        
+                <div class="project-card" onclick="window.open('https://github.com/Snehalgullapudi/Forecasting-Economic-Prosperity-Leveraging-Machine-Learning-for-GDP-per-Capita-Prediction', '_blank')">
+                    <img src="Assets/GDP.jpeg" alt="GDP Prediction" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">GDP Prediction</h3>
+                        <p class="project-desc">A machine learning model built with Google TensorFlow to predict a country's GDP based on various economic indicators and historical data.</p>
+                    </div>
+                </div>
+        
+                <div class="project-card">
+                    <img src="Assets/Breast Cancer.jpg" alt="Breast Cancer Prediction" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Breast Cancer Prediction</h3>
+                        <p class="project-desc">A machine learning model to predict breast cancer based on medical features, helping in early diagnosis and treatment planning.</p>
+                    </div>
+                </div>
+        
+                <div class="project-card" onclick="window.open('https://github.com/Snehalgullapudi/Human-Action-Recognition', '_blank')">
+                    <img src="Assets/Human Activity Recognition.jpeg" alt="Human Action Detection" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Human Action Detection</h3>
+                        <p class="project-desc">A computer vision project that detects and classifies human actions in video sequences using deep learning techniques.</p>
+                    </div>
+                </div>
+        
+                <div class="project-card">
+                    <img src="Assets/Stock_Maket.jpg" alt="Stock Market Prediction" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Stock Market Prediction</h3>
+                        <p class="project-desc">A sentiment analysis-based approach to predict stock market trends by analyzing financial news and social media data.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+
+        <section id="resume">
+            <h2 class="section-title">My Resume</h2>
+            <div class="resume-content">
+                <div class="resume-section">
+                    <h3 class="resume-section-title">Profile</h3>
+                    <p class="resume-item-desc">
+                        I am currently pursuing my 3rd year in Bachelor of Technology degree in Computer Science and Engineering with a specialization in Artificial Intelligence and Machine Learning. With a keen interest in data science and machine learning, I possess strong analytical abilities and creativity. I have a solid foundation in DSA and am proficient in multiple programming languages.
+                    </p>
+                </div>
+
+                <div class="resume-section">
+                    <h3 class="resume-section-title">Education</h3>
+                    <div class="resume-item">
+                        <h4 class="resume-item-title">Vellore Institute of Technology, Amaravathi</h4>
+                        <div class="resume-item-subtitle">B.Tech in Computer Science and Engineering</div>
+                        <div class="resume-item-date">2022 - 2026</div>
+                        <p class="resume-item-desc">
+                            Specialization: Artificial Intelligence and Machine Learning<br>
+                            CGPA: 8.94
+                        </p>
+                    </div>
+                    <div class="resume-item">
+                        <h4 class="resume-item-title">FIITJEE, Hyderabad</h4>
+                        <div class="resume-item-subtitle">Intermediate (MPC), Telangana State Board</div>
+                        <div class="resume-item-date">2022</div>
+                        <p class="resume-item-desc">Percentage: 93.4</p>
+                    </div>
+                    <div class="resume-item">
+                        <h4 class="resume-item-title">Cal Public School, Hyderabad</h4>
+                        <div class="resume-item-subtitle">10th Grade (CBSE)</div>
+                        <div class="resume-item-date">2020</div>
+                        <p class="resume-item-desc">Percentage: 91%</p>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h3 class="resume-section-title">Technical Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">OOPS</span>
+                        <span class="skill-tag">Database Management</span>
+                        <span class="skill-tag">Web Development</span>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h3 class="resume-section-title">Projects</h3>
+                    <ul class="resume-item-desc">
+                        <li>Earthquake detecting alarm and graph using Arduino Uno and NodeMcu</li>
+                        <li>Heartrate and temperature Monitoring System using Arduino Uno and NodeMcu</li>
+                        <li>GDP prediction of a country using Google tensorflow</li>
+                        <li>Breast Cancer prediction</li>
+                        <li>Human action detection</li>
+                        <li>Stock market prediction using Sentiment Analysis</li>
+                    </ul>
+                </div>
+
+                <div class="resume-section">
+                    <h3 class="resume-section-title">Achievements</h3>
+                    <ul class="resume-item-desc">
+                        <li>Scored 100 percentage in Class 10 CBSE Mathematics</li>
+                        <li>Secured All India 12th Rank in T.I.M.E National Scholarship test</li>
+                        <li>Secured multiple medals In Olympiads at school level</li>
+                    </ul>
+                </div>
+
+                <div class="resume-section">
+                    <h3 class="resume-section-title">Certifications</h3>
+                    <ul class="resume-item-desc">
+                        <li>Machine Learning using Google Tensorflow</li>
+                        <li>Google Generative AI</li>
+                        <li>Microsoft Cloud Skills challenge on AI</li>
+                        <li>Design Thinking</li>
+                        <li>IBM AI and Data Science</li>
+                        <li>Web development</li>
+                    </ul>
+                </div>
+
+                <div class="download-resume">
+                    <a href="Assets\Snehal Gullapudi Resume.docx" download><i class="fas fa-download"></i> Download Resume</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (existing code with completed form) -->
+<section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-content">
+        <p class="contact-text">Feel free to get in touch with me. I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+        
+        <form class="contact-form" id="contactForm" method="POST" action="https://formspree.io/f/mpwpaevv">
+            <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" class="form-textarea" required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message</button>
+            <div class="form-status"></div>
+        </form>
+
+        <div class="contact-info">
+            <!-- Existing contact info items -->
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    const form = document.getElementById('contactForm');
+    const formStatus = document.querySelector('.form-status');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const submitButton = form.querySelector('button[type="submit"]');
+        
+        try {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                form.reset();
+                formStatus.classList.add('success');
+                formStatus.textContent = 'Message sent successfully!';
+                setTimeout(() => {
+                    formStatus.classList.remove('success');
+                    formStatus.textContent = '';
+                }, 5000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            formStatus.classList.add('error');
+            formStatus.textContent = 'Oops! There was a problem. Please try again.';
+            setTimeout(() => {
+                formStatus.classList.remove('error');
+                formStatus.textContent = '';
+            }, 5000);
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Message';
+        }
+    });
+</script>
+<footer>
+    <div class="footer-content">
+        <div class="footer-social">
+            <a href="https://github.com/Snehalgullapudi" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/snehal-gullapudi-270b63253/" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:Snehalgullapudi@gmail.com" title="Email">
+                <i class="far fa-envelope"></i>
+            </a>
+        </div>
+        <p class="footer-text">&copy; 2025 Snehal Gullapudi. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body>
